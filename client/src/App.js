@@ -1,25 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
-import Main_page from './components/Main_page';
-import Access_form from './components/Create_access_form';
-import Find_a_club from './components/Find_club';
+import LandingPage from './components/Landing_page';
+import MainPage from './components/Main_page';
+import AccessForm from './components/Create_access_form';
+import FindAClub from './components/Find_club';
+import { useNavigate } from 'react-router-dom';
+import { Routes, Route, Link } from "react-router-dom"
 
 function App() {
+
   return (
     <div className="App">
 
-      <h1>Welcome to Book Clubs(replace with catchier title!)!</h1>
 
-        <section>
-          <button>Find Club</button>
-          <button>Create Club</button>
-          <p>or <a>sign in</a></p>
-        </section>
-
-      <Access_form />
-      <Find_a_club />
-      <Main_page />
-
+      <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/club" element={<MainPage />} />
+      <Route path="/create-a-club" element={<AccessForm />} />
+      <Route path="/sign-in" element={<AccessForm />} />
+      <Route path="/search" element={<FindAClub />} />
+      </Routes>
     </div>
   );
 }
@@ -27,7 +27,7 @@ function App() {
 export default App;
 
 
-// Building the flow in React:
+// Try to build this flow in React:
 // Landing page is written in App.js
 // buttons contain conditional to determine next page
 // "create" or "sign in" components
