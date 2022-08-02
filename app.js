@@ -71,9 +71,6 @@ app.get('/sign-in', function(req, res, next) {
     db(`SELECT name, password, clubname from admins WHERE name="${req.body.name}" AND password="${req.body.password}" AND clubname="${req.body.clubname}";`)
     .then((results) => {
         res.send(results.data);
-    // , password="${req.body.password}", clubname="${req.body.clubname}"? Why doesn't it work chaining
-    // these together with commas?
-    // The above doesn't work, it doesn't check all criteria.
     })
     .catch((err) => res.status(500).send(err));
 //   should check if data is in database then direct to book club page if password matches

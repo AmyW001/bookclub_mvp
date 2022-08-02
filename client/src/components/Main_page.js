@@ -42,7 +42,6 @@ export default function Main_page() {
       let response = await fetch (url);
       if (response.ok) {
         let data = await response.json();
-        console.log(data);
         return data;
       } else {
         setError(`Server error: ${response.status} ${response.statusText}`);
