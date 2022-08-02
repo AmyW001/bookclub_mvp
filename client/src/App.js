@@ -20,6 +20,7 @@ function App() {
       <Route path="/sign-in" element={<AccessForm />} />
       <Route path="/search" element={<FindAClub />} />
       </Routes>
+      
     </div>
   );
 }

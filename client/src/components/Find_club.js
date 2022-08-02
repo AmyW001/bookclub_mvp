@@ -11,7 +11,7 @@ export default function Find_club() {
 
         <h4>Results</h4>
         <hr/>
-        <h5>"Club Name imported from database"</h5>
+        <h5>"Club Name "imported from database""</h5>
         <p>"Currently reading blah imported from where?"</p>
         <button>Click here to view</button>
     </div>

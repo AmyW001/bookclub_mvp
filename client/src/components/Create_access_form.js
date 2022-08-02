@@ -1,7 +1,15 @@
 import React from 'react'
 
+
+
+
 export default function Create_access_form() {
-  return (
+  
+    //add in get/fetch requests here.
+    //match to the 'Route' that's been set up
+
+
+    return (
     <div>
         <form>
                 <label for="name">Name</label>
