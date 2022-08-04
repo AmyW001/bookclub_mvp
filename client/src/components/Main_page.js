@@ -76,7 +76,6 @@ export default function Main_page() {
                           value={query.bookName}
                           onChange={(e) => handleInputChange(e)}>
                       </input>
-                      {/* take in first name and last name */}
                     <label for="author">Author:</label>
                       <input 
                         type="text" 

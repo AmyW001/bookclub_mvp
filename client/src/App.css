@@ -1,3 +1,7 @@
+body {
+  background-color: #f0c32f;
+}
+
 .App {
   text-align: center;
 }
@@ -36,3 +40,5 @@
     transform: rotate(360deg);
   }
 }
+
+

@@ -66,22 +66,24 @@ app.post('/create-a-club', function(req, res, next) {
 });
 
 
-//this is working!
+//this is working in Postman!
 app.get('/sign-in', function(req, res, next) {
-    db(`SELECT name, password, clubname from admins WHERE name="${req.body.name}" AND password="${req.body.password}" AND clubname="${req.body.clubname}";`)
+    db(`SELECT clubname from admins WHERE name="${req.body.name}" AND password="${req.body.password}" AND clubname="${req.body.clubname}";`)
     .then((results) => {
         res.send(results.data);
     })
     .catch((err) => res.status(500).send(err));
-//   should check if data is in database then direct to book club page if password matches
-//  admins WHERE name="${req.body.name}"`
 });
 
-//this is working!
-app.get('/search', (req, res, next) => {
-    db(`SELECT clubname, description, current_book from admins WHERE clubname="${req.body.clubname}";`)
+//this is working in Postman!
+app.get('/search/:clubname', (req, res, next) => {
+    db(`SELECT clubname, description, current_book from admins WHERE clubname="${req.params.clubname}";`) //req.params.clubname?!
     .then((results) => {
+        if (!results) {
+            return res.status(404).send("No club found");
+        } else {
         res.send(results.data);
+        }
     })
     .catch((err) => res.status(500).send(err));
 });     

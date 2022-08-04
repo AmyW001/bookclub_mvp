@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-export default function Create_access_form() {
+
+export default function Sign_in() {
   
     const [error, setError] = useState("");
     const [details, setDetails] = useState({
@@ -8,6 +10,7 @@ export default function Create_access_form() {
       password: "",
       clubname: ""
     });
+    const navigate = useNavigate();
 
     //add in get/fetch requests here.
     //match to the 'Route' that's been set up
@@ -28,15 +31,15 @@ export default function Create_access_form() {
     // handle form submit
     e.preventDefault();
     console.log("form button clicked!");
+    (console.log({details}))
 
-    console.log(details);
     try {
-      let response = await fetch("/create-a-club", {
-        method: "POST",
+      let response = await fetch("/sign-in", {
+        method: "GET",
         headers: {
           "Content-Type":"application/json"
         },
-        body: JSON.stringify({ name: details.name, password: details.password, description: details.clubname })
+        body: JSON.stringify({ name: details.name, password: details.password, clubname: details.clubname })
       });
       if (response.ok) {
         let data = await response.json();
@@ -62,7 +65,7 @@ export default function Create_access_form() {
                   id="name"
                   placeholder="Jane Doe"
                   name="name"
-                  value={details.adminName}
+                  value={details.name}
                   onChange={(e) => handleInputChange(e)}
                   />
                 <label for="password">Password</label>
@@ -79,7 +82,7 @@ export default function Create_access_form() {
                   type="text" 
                   id="club-name"
                   name="clubname"
-                  value={details.clubName}
+                  value={details.clubname}
                   onChange={(e) => handleInputChange(e)}
                   />
                 <button type="submit" onClick={handleSubmit}>Submit</button>
@@ -87,11 +90,3 @@ export default function Create_access_form() {
     </div>
   )
 }
-
-
-// This form will be used both to sign in and to create a new club 
-// as the exact same information is required for both.
-// Is it possible to use this component on two different pages and 
-// change what it does? So if it's on the "Create a new club" page it'll 
-// create a new club, but if it's on the "Sign In" page it'll take you through to
-// the club after validating the details?
