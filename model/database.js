@@ -11,16 +11,16 @@ const con = mysql.createConnection({
   user: DB_USER || "root",
   password: DB_PASS,
   database: DB_NAME || "bookmvp",
-  multipleStatements: true
+  multipleStatements: true,
 });
 
-con.connect(function(err) {
+con.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
 
   let sql =
-    "DROP TABLE if exists admins; CREATE TABLE admins(id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255) not null, password VARCHAR(255) not null, clubname VARCHAR(255), PRIMARY KEY (id));";
-  con.query(sql, function(err, result) {
+    "DROP TABLE if exists admins; CREATE TABLE admins(id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255) not null, password VARCHAR(255) not null, clubname VARCHAR(255), description VARCHAR(255), current_book VARCHAR(255), PRIMARY KEY (id));";
+  con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table creation `admins` was successful!");
 
