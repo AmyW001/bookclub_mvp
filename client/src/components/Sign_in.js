@@ -30,12 +30,10 @@ export default function Sign_in() {
     const handleSubmit = async e => {
     // handle form submit
     e.preventDefault();
-    console.log("form button clicked!");
-    (console.log({details}))
 
     try {
       let response = await fetch("/sign-in", {
-        method: "GET",
+        method: "POST",
         headers: {
           "Content-Type":"application/json"
         },
@@ -44,7 +42,9 @@ export default function Sign_in() {
       if (response.ok) {
         let data = await response.json();
         console.log(data);
-        return data;
+        if (data.length > 0) {
+          navigate("/club");
+        }
       } else {
         setError(`Server error: ${response.status} ${response.statusText}`);
         }

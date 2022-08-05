@@ -67,7 +67,7 @@ app.post('/create-a-club', function(req, res, next) {
 
 
 //this is working in Postman!
-app.get('/sign-in', function(req, res, next) {
+app.post('/sign-in', function(req, res, next) {
     db(`SELECT clubname from admins WHERE name="${req.body.name}" AND password="${req.body.password}" AND clubname="${req.body.clubname}";`)
     .then((results) => {
         res.send(results.data);

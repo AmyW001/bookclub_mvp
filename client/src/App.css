@@ -41,4 +41,11 @@ body {
   }
 }
 
+#landing-page-div {
+    background-color: #f0c32f;
+    height: 100%;
+}
 
+#landing-page-image {
+    object-fit: fill;
+}

@@ -32,6 +32,7 @@ export default function Main_page() {
 
     let book = await getBook();
     setBook(book);
+    //write post request here to save data to backend
     };    
 
     const getBook= async () => {
