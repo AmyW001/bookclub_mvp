@@ -43,7 +43,10 @@ export default function Sign_in() {
         let data = await response.json();
         console.log(data);
         if (data.length > 0) {
-          navigate("/club");
+          navigate(`/club/${details.clubname}`);
+        }
+        else {
+          console.log("try again!");
         }
       } else {
         setError(`Server error: ${response.status} ${response.statusText}`);
@@ -57,36 +60,55 @@ export default function Sign_in() {
     };
 
     return (
-    <div>
-        <form>
-                <label for="name">Name</label>
+    <div className="sign-in-div">
+      
+      <h1 className="sign-in-header">Sign in!</h1>
+
+        <section id="sign-in-section">
+
+        <form className="sign-in-form">
+
+                <div className="container">
+                <label for="name" className="col-6">Name:</label>
                 <input 
                   type="text" 
                   id="name"
                   placeholder="Jane Doe"
+                  className="col-6"
                   name="name"
                   value={details.name}
                   onChange={(e) => handleInputChange(e)}
                   />
-                <label for="password">Password</label>
+              </div>
+
+              <div>
+                <label for="password" className="col-6">Password:</label>
                 <input 
                   type="password" 
                   id="password"
+                  className="col-6"
                   name="password"
                   value={details.password}
                   onChange={(e) => handleInputChange(e)}
-
                   />
-                <label for="club-name">Club Name</label>
+              </div>
+
+              <div>
+                <label for="club-name" className="col-4">Club Name:</label>
                 <input 
                   type="text" 
                   id="club-name"
+                  className="col-8"
                   name="clubname"
                   value={details.clubname}
                   onChange={(e) => handleInputChange(e)}
                   />
-                <button type="submit" onClick={handleSubmit}>Submit</button>
+              </div>
+
+                <button type="submit" className="btn btn-dark btn-m" onClick={handleSubmit}>Submit</button>
             </form>
+
+        </section>
     </div>
   )
 }

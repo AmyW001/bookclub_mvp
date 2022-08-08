@@ -16,7 +16,7 @@ function App() {
 
       <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path="/club" element={<MainPage />} />
+      <Route path="/club/:name" element={<MainPage />} />
       <Route path="/create-a-club" element={<AccessForm />} />
       <Route path="/sign-in" element={<SignIn />} />
       <Route path="/search" element={<FindAClub />} />

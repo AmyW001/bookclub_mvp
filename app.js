@@ -33,28 +33,12 @@ app.use('/users', usersRouter);
 //write Router.get etc here
 
 
-//NOT WORKING. How do I get this to redirect to my landing page?
 app.get('/', function(req, res, next) {
-  res.send( "How do I get this to redirect to my landing page?" );
-});
-
-
-//this works, need to add in if/else statement that throws error if clubname does not exist
-app.get('/club/:clubname', function(req, res, next) {
-  db(`SELECT clubname, description, current_book from admins WHERE clubname="${req.params.clubname}";`)
-    .then((results) => {
-        res.send(results.data);
-    })
-    .catch((err) => res.status(500).send(err));
+  res.send( "" );
 });
 
 //add if else statement here to check if club name already exists, if already exists don't allow new club with this name
-//tried to check results.data.clubname but doesn't work?
-// const pokemon = data.find(e => +e.id === +req.params.id);
 
-//   if (!pokemon) {
-//     return res.status(404).send("Pokemon does not exist");
-//   }
 app.post('/create-a-club', function(req, res, next) {
     db(`INSERT INTO admins (name, password, clubname) VALUES ("${req.body.name}", "${req.body.password}", "${req.body.clubname}")`)
     .then(() => {
@@ -77,7 +61,7 @@ app.post('/sign-in', function(req, res, next) {
 
 //this is working in Postman!
 app.get('/search/:clubname', (req, res, next) => {
-    db(`SELECT clubname, description, current_book from admins WHERE clubname="${req.params.clubname}";`) //req.params.clubname?!
+    db(`SELECT clubname, description, current_book from admins WHERE clubname="${req.params.clubname}";`)
     .then((results) => {
         if (!results) {
             return res.status(404).send("No club found");
@@ -87,5 +71,27 @@ app.get('/search/:clubname', (req, res, next) => {
     })
     .catch((err) => res.status(500).send(err));
 });     
+
+app.get('/club/:clubname', (req, res, next) => {
+    db(`SELECT clubname, description, current_book, imageurl from admins WHERE clubname="${req.params.clubname}";`) 
+    .then((results) => {
+        if (!results) {
+            return res.status(404).send("No club found");
+        } else {
+        res.send(results.data);
+        }
+    })
+    .catch((err) => res.status(500).send(err));
+});   
+
+//working in postman!
+//this does not allow the data to be overwritten when clicking "change book"?
+app.post('/club/:clubname', (req, res, next) => {
+    db(`update admins set description="${req.body.description}", current_book="${req.body.current_book}", imageURL="${req.body.imageurl}" WHERE clubname="${req.params.clubname}";`) 
+    .then((results) => {
+        res.send(results.data);
+    })
+    .catch((err) => res.status(500).send(err));
+});  
 
 module.exports = app;

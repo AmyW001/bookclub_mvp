@@ -18,12 +18,12 @@ export default function LandingPage() {
 
           <div className="col-6 no-gutters d-flex flex-column justify-content-center">
 
-            <h2>Welcome to</h2>
-            <h1>The Book Club Collective!</h1>
+            <h2 className="headers landing-page-h2">Welcome to</h2>
+            <h1 className="headers landing-page-h1">The Book Club Collective!</h1>
 
           <section>
-            <Link to="search">Find a Club</Link>
-            <Link to="create-a-club">Create a Club</Link>
+            <Link to="search"><button className="btn btn-dark btn-lg">Find a Club</button></Link>
+            <Link to="create-a-club"><button className="btn btn-dark btn-lg">Create a Club</button></Link>
             <p>or <Link to="sign-in">sign in</Link></p>
           </section>
 

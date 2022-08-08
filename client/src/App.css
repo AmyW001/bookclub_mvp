@@ -1,5 +1,5 @@
 body {
-  background-color: #f0c32f;
+  background-color: #f0c32f !important;
 }
 
 .App {
@@ -43,9 +43,143 @@ body {
 
 #landing-page-div {
     background-color: #f0c32f;
-    height: 100%;
+    max-width: 100%;
 }
 
 #landing-page-image {
-    object-fit: fill;
+    object-fit: cover !important;
+}
+
+.headers {
+  letter-spacing: 0.07em;
+}
+
+.btn {
+  margin: 30px 15px 25px 15px;
+}
+
+.landing-page-h1 {
+  font-size: 5.5vw;
+  margin: 10px 10px 10px 10px;
+}
+
+.landing-page-h2 {
+  font-size: 4vw;
+  font-weight: lighter;
+}
+
+.find-club-header {
+  font-size: 7vw;
+  margin-top: 50px;
+}
+
+#find-club-top {
+  background-color: #f9f4e6;
+  margin: 25px 50px 50px 50px;
+  padding: 30px 75px 10px 75px;
+  border-radius: 50px 50px 50px 50px;
+  max-width: 70%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.find-club-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.club-searchbar {
+  margin: 20px 20px 20px 20px;
+  width: 100%;
+}
+
+.section-main-page {
+  background-color: #f9f4e6;
+  margin: 50px 50px 50px 50px;
+  padding: 40px 75px 40px 75px;
+  border-radius: 50px 50px 50px 50px;
+  max-width: 70%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcome-header {
+  margin-top: 50px
+}
+
+.club-name-header {
+  font-size: 8vw;
+}
+
+.book-header {
+  margin-bottom: 35px;
+}
+
+.book-title {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  letter-spacing: 0.05em;
+  font-size: 4vw;
+}
+
+.book-description {
+  text-align: justify;
+}
+
+.change-book-button {
+  margin: 30px 20px 20px 20px;
+}
+
+.change-book-form {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.create-club-header {
+  margin-top: 35px;
+  margin-bottom: 0px;
+  font-size: 6vw;
+}
+
+.create-club-div{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create-club-form {
+background-color: #f9f4e6;
+margin: 50px 50px 50px 50px;
+padding: 40px 75px 40px 75px;
+border-radius: 50px 50px 50px 50px;
+display: flex;
+align-items: center;
+flex-direction: column;
+row-gap: 15px;
+}
+
+.sign-in-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sign-in-header {
+  margin-top: 35px;
+  margin-bottom: 0px;
+  font-size: 6vw;
+}
+
+.sign-in-form {
+  background-color: #f9f4e6;
+    margin: 50px 50px 50px 50px;
+    padding: 40px 75px 40px 75px;
+    border-radius: 50px 50px 50px 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 15px;
 }
