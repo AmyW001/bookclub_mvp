@@ -114,6 +114,7 @@ export default function Main_page() {
         let data = await response.json();
         console.log("api data", data);
         return data;
+        
       } else {
         setError(`Server error: ${response.status} ${response.statusText}`);
         }
